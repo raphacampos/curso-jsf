@@ -12,9 +12,26 @@ xmlns:h="http://java.sun.com/jsf/html">
 
 <h:body>
   <h2>JSF 2.1 Olá Mundo</h2>
-  <h:form>
-	  <h:inputText value ="#{olaBean.mensagem}"></h:inputText>
-  	  <h:commandButton value ="#{olaBean.mensagem}" action ="bemvindo"></h:commandButton>
-  </h:form>
+   
+	<!--   <h:inputText value ="#{olaBean.mensagem}"></h:inputText>
+  	  <h:commandButton value ="#{olaBean.mensagem}" action ="bemvindo"></h:commandButton> -->
+   
+   <h:form>
+    <h:inputText
+        binding="#{bean.inputComponent}"
+        value="#{bean.inputValue}"
+        valueChangeListener="#{bean.inputChanged}">
+        <f:converter converterId="conversor" />
+        <f:validator validatorId="validador" />
+    </h:inputText>
+    <h:commandButton
+        value="submit"
+        action="#{bean.action}" />
+    <h:outputText
+        binding="#{bean.outputComponent}"
+        value="#{bean.outputValue}" />
+    <h:messages />
+</h:form>
+   
 </h:body>
 </html>
