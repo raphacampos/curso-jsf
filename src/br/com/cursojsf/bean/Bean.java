@@ -1,9 +1,12 @@
 package br.com.cursojsf.bean;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.component.html.HtmlInputText;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.event.ValueChangeEvent;
-
+@ManagedBean
+@RequestScoped 
 public class Bean {
 
     // Init ----------------------------------------------------------------------------------------
