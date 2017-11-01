@@ -31,6 +31,21 @@ xmlns:h="http://java.sun.com/jsf/html">
         binding="#{bean.outputComponent}"
         value="#{bean.outputValue}" />
     <h:messages />
+   
+    <h:inputText
+        binding="#{bean.novoTexto}"
+        value="#{bean.texto}"/>
+    
+    <h:commandButton 
+    	id="novoCommand"     	 
+        value="submit" 
+        title="clique aqui" 
+        action="#{bean.novoMetodo}" 
+        actionListener="#{bean.metodoListener}"         
+        />
+    
+    
+        
 </h:form>
    
 </h:body>

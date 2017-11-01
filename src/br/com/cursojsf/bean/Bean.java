@@ -4,10 +4,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.component.html.HtmlInputText;
 import javax.faces.component.html.HtmlOutputText;
+import javax.faces.event.AbortProcessingException;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.ActionListener;
 import javax.faces.event.ValueChangeEvent;
 @ManagedBean
 @RequestScoped 
-public class Bean {
+public class Bean implements ActionListener {
 
     // Init ----------------------------------------------------------------------------------------
 
@@ -16,9 +19,32 @@ public class Bean {
     private HtmlOutputText outputComponent;
     private String outputValue;
 
+    private HtmlInputText novoTexto;
+    private String texto;
+    
     // Constructors -------------------------------------------------------------------------------
 
-    public Bean() {
+    public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+
+	public void setOutputValue(String outputValue) {
+		this.outputValue = outputValue;
+	}
+
+	public HtmlInputText getNovoTexto() {
+		return novoTexto;
+	}
+
+	public void setNovoTexto(HtmlInputText novoTexto) {
+		this.novoTexto = novoTexto;
+	}
+
+	public Bean() {
         log("constructed");
     }
 
@@ -76,4 +102,21 @@ public class Bean {
         String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
         System.out.println("Bean " + methodName + ": " + object);
     }
+    
+    public void novoMetodo(){    
+    	System.out.println("novoMetodo");    	
+    }
+    
+	public void metodoListener(ActionEvent e){    	
+    	System.out.println("metodoListener");    	
+    }
+
+	@Override
+	public void processAction(ActionEvent arg0) throws AbortProcessingException {
+		// TODO Auto-generated method stub
+		
+	}
+    
+ 
+    
 }
